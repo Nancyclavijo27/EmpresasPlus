@@ -1,30 +1,18 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/db'); // Importa la instancia de Sequelize configurada
 
-class Empresa extends Model {}
+class Categoria extends Model {}
 
-Empresa.init({
-  nit: {
+Categoria.init({
+  nombre: {
     type: DataTypes.STRING,
     primaryKey: true,
     allowNull: false,
   },
-  nombre: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  direccion: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  telefono: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
 }, {
   sequelize,
-  modelName: 'Empresa',
+  modelName: 'Categoria',
   timestamps: false, // Opcional: Deshabilita la generación automática de timestamps
 });
 
-module.exports = Empresa;
+module.exports = Categoria;
