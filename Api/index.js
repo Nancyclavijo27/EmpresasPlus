@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const pool = require('./src/config/db'); // Importa la conexión a la base de datos desde db.js
+const cors = require('cors'); // Importa el paquete CORS
+const pool = require('./src/config/db'); 
 const authRoutes = require('./src/routes/authRoutes');
 const empresaRoutes = require('./src/routes/empresaRoutes');
 const productosRoutes = require('./src/routes/productosRoutes');
-const categoríaRoutes = require('./src/routes/categoríaRoutes'); // Importa las rutas de categoría
-const clienteRoutes = require('./src/routes/clienteRoutes'); // Importa las rutas de cliente
-const ordenRoutes = require('./src/routes/ordenRoutes'); // Importa las rutas de orden
+const categoríaRoutes = require('./src/routes/categoríaRoutes'); 
+const clienteRoutes = require('./src/routes/clienteRoutes'); 
+const ordenRoutes = require('./src/routes/ordenRoutes');
 
 
 require('dotenv').config();
@@ -16,6 +17,13 @@ const port = process.env.PORT || 3000;
 
 // Middleware para parsear el cuerpo de las solicitudes como JSON
 app.use(bodyParser.json());
+
+// Configura CORS para permitir solicitudes solo desde http://localhost:3001
+const corsOptions = {
+  origin: 'http://localhost:3001', // Reemplaza esto con la URL de tu aplicación frontend
+};
+app.use(cors(corsOptions));
+
 
 // Middleware para manejar las rutas de autenticación
 app.use('/auth', authRoutes);
@@ -48,3 +56,4 @@ sequelize.sync().then(() => {
 }).catch(error => {
   console.error('Error al sincronizar modelos con la base de datos:', error);
 });
+

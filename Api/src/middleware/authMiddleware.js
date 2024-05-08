@@ -2,6 +2,13 @@ const jwt = require('jsonwebtoken');
 const { secret } = require('../config/jwt');
 
 const authenticateJWT = (req, res, next) => {
+  // Verifica si la ruta es '/admin/login'
+  if (req.path === '/admin/login') {
+    // Si es la ruta de inicio de sesión como administrador, pasa al siguiente middleware sin verificar el token
+    return next();
+  }
+
+  // Si no es la ruta de inicio de sesión como administrador, procede con la verificación del token
   const token = req.headers.authorization;
 
   if (token) {
