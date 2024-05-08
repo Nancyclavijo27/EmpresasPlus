@@ -1,38 +1,49 @@
+/* Estilos para el contenedor principal de la aplicación */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh; /* Ajusta la altura al 100% del viewport */
+  background-color: #f0f0f0; /* Color de fondo */
 }
 
-.App-link {
-  color: #61dafb;
+/* Estilos para el encabezado */
+.App-header {
+  margin-bottom: 20px; /* Espacio inferior para separar del resto del contenido */
+  text-align: center; /* Centrar el texto */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Estilos para el título principal */
+.App-title {
+  font-size: 2.5rem; /* Tamaño del texto */
+  margin-bottom: 10px; /* Espacio inferior */
+  color: #333; /* Color del texto */
 }
+
+/* Estilos para el párrafo de información adicional */
+.App-info {
+  font-size: 1rem; /* Tamaño del texto */
+  color: #666; /* Color del texto */
+  max-width: 400px; /* Ancho máximo del párrafo */
+  margin-bottom: 30px; /* Espacio inferior */
+}
+
+
+.Message {
+  font-size: 20px; /* Tamaño de la letra del mensaje */
+  font-weight: bold; /* Peso de la fuente */
+  color: green; /* Color del texto */
+  margin-top: 20px; /* Espacio superior */
+}
+
+.Form-container {
+  display: flex; /* Utiliza flexbox para alinear los formularios */
+  justify-content: center; /* Centra horizontalmente los formularios */
+  margin-top: 20px; /* Espacio superior */
+}
+
+.Form-container > * {
+  margin: 0 10px; /* Margen entre los formularios */
+}
+
