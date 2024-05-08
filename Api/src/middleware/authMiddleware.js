@@ -1,4 +1,3 @@
-// middleware/authMiddleware.js
 const jwt = require('jsonwebtoken');
 const { secret } = require('../config/jwt');
 
@@ -20,7 +19,7 @@ const authenticateJWT = (req, res, next) => {
 
 const isAdmin = (req, res, next) => {
   // Verificar si el usuario es administrador
-  if (req.user && req.user.role === 'Administrador') {
+  if (req.user && req.user.tipo === 'Administrador') {
     // Usuario tiene permisos de administrador, continuar con la solicitud
     next();
   } else {
@@ -31,7 +30,7 @@ const isAdmin = (req, res, next) => {
 
 const isExternal = (req, res, next) => {
   // Verificar si el usuario es externo
-  if (req.user && req.user.role === 'Externo') {
+  if (req.user && req.user.tipo === 'Externo') {
     // Usuario tiene permisos de externo, continuar con la solicitud
     next();
   } else {
