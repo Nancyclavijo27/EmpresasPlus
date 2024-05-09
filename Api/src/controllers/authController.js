@@ -78,3 +78,19 @@ exports.registro = async (req, res) => {
     res.status(500).json({ mensaje: 'Error al registrar usuario' });
   }
 };
+
+// Controlador para obtener los detalles del usuario por su ID
+exports.obtenerDetalleUsuario = async (req, res) => {
+  const { userId } = req.params; // Obtener el ID del usuario de los parámetros de la solicitud
+
+  try {
+    const usuario = await Usuario.findByPk(userId); // Buscar el usuario por su ID
+    if (!usuario) {
+      return res.status(404).json({ mensaje: 'Usuario no encontrado' }); // Si no se encuentra el usuario, devolver un error 404
+    }
+    res.json(usuario); // Devolver los detalles del usuario encontrado
+  } catch (error) {
+    console.error('Error al obtener el detalle del usuario:', error);
+    res.status(500).json({ mensaje: 'Error al obtener el detalle del usuario' });
+  }
+};

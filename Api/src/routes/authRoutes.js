@@ -11,4 +11,6 @@ router.post('/admin/login', authController.adminLogin);
 // Ruta para el registro de nuevos usuarios
 router.post('/registro', authController.registro);
 
+router.get('/usuario/:userId', authController.obtenerDetalleUsuario);
+
 module.exports = router;
