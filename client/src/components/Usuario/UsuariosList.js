@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../api/axios'; // Importa el archivo de configuración de Axios
+import styles from './usuariosList.module.css';
 
 
 const UsuariosList = () => {
@@ -20,15 +21,16 @@ const UsuariosList = () => {
     fetchUsuarios();
   }, []);
 
+
   return (
-    <div>
-    <h2>Lista de Usuarios</h2>
-    <ul>
-      {usuarios.map((usuario, index) => (
-        <li key={usuario + index}>{usuario}</li> // Agrega un atributo key único
-      ))}
-    </ul>
-  </div>
+    <div className={styles.container}>
+      <h2 className={styles.title}>Lista de Usuarios</h2>
+      <ul className={styles.userList}>
+        {usuarios.map((usuario, index) => (
+          <li key={index} className={styles.userItem}>{usuario}</li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

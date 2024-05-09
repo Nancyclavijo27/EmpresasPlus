@@ -11,7 +11,7 @@ const AdminPanel = () => {
   return (
     <div className={styles["admin-panel"]}>
       <div className={styles["gestion-empresas"]}>
-      <UsuariosList />
+    
         <h2>Gestión de Empresas</h2>
         <div className={styles["crear-empresa-form"]}>
           <h3>Crear Nueva Empresa</h3>
@@ -21,6 +21,8 @@ const AdminPanel = () => {
           <h3>Listado de Empresas</h3>
           <Empresas />
         </div>
+        <h2>Gestión de Usuarios</h2>
+         <UsuariosList />
       </div>
       <div className={styles["gestion-productos"]}>
         <h2>Gestión de Productos</h2>
