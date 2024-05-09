@@ -7,7 +7,7 @@ const PerfilUsuario = ({ userId }) => {
   useEffect(() => {
     const fetchUsuario = async () => {
       try {
-        const response = await axios.get(`URL_API_USUARIO/${userId}`);
+        const response = await axios.get(`/auth/usuario/${userId}`);
         setUsuario(response.data);
       } catch (error) {
         console.error('Error al obtener usuario:', error);

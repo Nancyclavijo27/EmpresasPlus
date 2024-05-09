@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../../api/axios'; // Importa el archivo de configuración de Axios
+import styles from './ListaProductos.module.css'; // Importa los estilos CSS
 
 const ListaProductos = () => {
   const [productos, setProductos] = useState([]);
@@ -24,12 +25,16 @@ const ListaProductos = () => {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <h2>Listado de Productos</h2>
-      <ul>
+      <ul className={styles.productos}>
         {productos.map(producto => (
           <li key={producto.id}>
-            <span>{producto.nombre}</span> - <span>{producto.precio}</span>
+            <span><strong>Código:</strong> {producto.codigo}</span> <br />
+            <span><strong>Nombre:</strong> {producto.nombre}</span> <br />
+            <span><strong>Características:</strong> {producto.caracteristicas}</span> <br />
+            <span><strong>Precio:</strong> {producto.precio}</span> <br />
+            <span><strong>Moneda:</strong> {producto.moneda}</span>
           </li>
         ))}
       </ul>

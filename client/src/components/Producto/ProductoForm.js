@@ -1,51 +1,57 @@
 import React, { useState } from 'react';
 import axios from '../../api/axios'; // Importa el archivo de configuración de Axios
+import styles from './CrearProductoFormulario.module.css';
 
-const CrearProducto = ({ onProductoCreado }) => {
-  const [producto, setProducto] = useState({
-    codigo: '',
-    nombre: '',
-    caracteristicas: '',
-    precio: '',
-    moneda: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setProducto({ ...producto, [name]: value });
-  };
+const CrearProductoFormulario = () => {
+  const [codigo, setCodigo] = useState('');
+  const [nombre, setNombre] = useState('');
+  const [caracteristicas, setCaracteristicas] = useState('');
+  const [precio, setPrecio] = useState('');
+  const [moneda, setMoneda] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/productos/productos', producto);
-      onProductoCreado(response.data);
-      // Limpiar el formulario después de enviar
-      setProducto({
-        codigo: '',
-        nombre: '',
-        caracteristicas: '',
-        precio: '',
-        moneda: '',
+      const response = await axios.post('/productos/productos', {
+        codigo,
+        nombre,
+        caracteristicas,
+        precio,
+        moneda
       });
+      console.log('Producto creado:', response.data);
+      // Puedes hacer algo aquí como redireccionar a otra página o mostrar un mensaje de éxito
     } catch (error) {
       console.error('Error al crear el producto:', error);
+      // Puedes manejar el error mostrando un mensaje al usuario
     }
-  };
+  }
 
   return (
-    <div>
-      <h2>Crear Producto</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="codigo" value={producto.codigo} onChange={handleChange} placeholder="Código" />
-        <input type="text" name="nombre" value={producto.nombre} onChange={handleChange} placeholder="Nombre" />
-        <textarea name="caracteristicas" value={producto.caracteristicas} onChange={handleChange} placeholder="Características"></textarea>
-        <input type="text" name="precio" value={producto.precio} onChange={handleChange} placeholder="Precio" />
-        <input type="text" name="moneda" value={producto.moneda} onChange={handleChange} placeholder="Moneda" />
-        <button type="submit">Crear Producto</button>
-      </form>
-    </div>
+    <form className={styles["formulario-producto"]}  onSubmit={handleSubmit}>
+      <label>
+        Código:
+        <input type="text" value={codigo} onChange={(e) => setCodigo(e.target.value)} />
+      </label>
+      <label>
+        Nombre:
+        <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+      </label>
+      <label>
+        Características:
+        <textarea value={caracteristicas} onChange={(e) => setCaracteristicas(e.target.value)} />
+      </label>
+      <label>
+        Precio:
+        <input type="number" value={precio} onChange={(e) => setPrecio(e.target.value)} />
+      </label>
+      <label>
+        Moneda:
+        <input type="text" value={moneda} onChange={(e) => setMoneda(e.target.value)} />
+      </label>
+      <button type="submit">Crear Producto</button>
+    </form>
   );
 };
 
-export default CrearProducto;
+export default CrearProductoFormulario;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../api/axios'; // Importa el archivo de configuración de Axios
+import styles from './Empresas.module.css'; // Importa los estilos CSS
 
 const Empresas = () => {
   const [empresas, setEmpresas] = useState([]);
@@ -18,9 +19,9 @@ const Empresas = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
       <h2>Listado de Empresas</h2>
-      <ul>
+      <ul className={styles.empresas}>
         {empresas.map((empresa) => (
           <li key={empresa.nit}>
             <h3>{empresa.nombre}</h3>

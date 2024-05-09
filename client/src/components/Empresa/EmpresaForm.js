@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from '../../api/axios'; // Importa el archivo de configuración de Axios
+import styles from './FormularioCrearEmpresa.module.css';
 
 const FormularioCrearEmpresa = () => {
   const [empresa, setEmpresa] = useState({
@@ -27,7 +28,7 @@ const FormularioCrearEmpresa = () => {
   };
 
   return (
-    <div>
+    <div className={styles["formulario-empresa"]}>
       <h2>Crear Nueva Empresa</h2>
       <form onSubmit={handleSubmit}>
         <div>

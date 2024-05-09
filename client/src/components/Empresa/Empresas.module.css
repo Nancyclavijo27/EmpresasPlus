@@ -1,0 +1,29 @@
+/* Empresas.module.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .empresas {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .empresas li {
+    background-color: #c9d9dd;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .empresas li h3 {
+    font-size: 20px;
+    margin-top: 0;
+  }
+  
+  .empresas li p {
+    margin: 8px 0;
+  }
+  

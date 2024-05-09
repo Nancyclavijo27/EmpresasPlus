@@ -1,0 +1,40 @@
+/* HomePage.module.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .welcome {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #224d7b;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
