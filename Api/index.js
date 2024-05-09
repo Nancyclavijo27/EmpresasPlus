@@ -8,6 +8,7 @@ const productosRoutes = require('./src/routes/productosRoutes');
 const categoríaRoutes = require('./src/routes/categoríaRoutes'); 
 const clienteRoutes = require('./src/routes/clienteRoutes'); 
 const ordenRoutes = require('./src/routes/ordenRoutes');
+const usuarioRoutes = require('./src/routes/usuariosRoutes');
 
 
 require('dotenv').config();
@@ -42,6 +43,9 @@ app.use('/clientes', clienteRoutes);
 
 // Middleware para manejar las rutas de órdenes
 app.use('/ordenes', ordenRoutes);
+
+// Middleware para manejar las rutas de usuarios
+app.use('/usuarios', usuarioRoutes);
 
 
 

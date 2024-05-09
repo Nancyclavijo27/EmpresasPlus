@@ -12,4 +12,7 @@ router.post('/empresas',  empresaController.crearEmpresa);
 
 router.get('/empresas/:nit', empresaController.obtenerDetallesEmpresa);
 
+// Ruta para eliminar una empresa por su NIT
+router.delete('/empresas/:nit', empresaController.eliminarEmpresa);
+
 module.exports = router;

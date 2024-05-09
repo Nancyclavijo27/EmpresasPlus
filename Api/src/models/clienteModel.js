@@ -29,4 +29,6 @@ Cliente.init({
   timestamps: false, // Opcional: Deshabilita la generación automática de timestamps
 });
 
+
+
 module.exports = Cliente;

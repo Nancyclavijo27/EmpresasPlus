@@ -54,3 +54,25 @@ exports.obtenerDetallesEmpresa = async (req, res) => {
     res.status(500).json({ mensaje: 'Error al obtener detalles de empresa' });
   }
 };
+
+// Controlador para eliminar una empresa por su NIT
+exports.eliminarEmpresa = async (req, res) => {
+  try {
+    const nit = req.params.nit;
+    
+    // Buscar la empresa por su NIT
+    const empresa = await Empresa.findOne({ where: { nit } });
+    if (!empresa) {
+      return res.status(404).json({ mensaje: 'Empresa no encontrada' });
+    }
+
+    // Eliminar la empresa
+    await empresa.destroy();
+
+    res.json({ mensaje: 'Empresa eliminada correctamente' });
+  } catch (error) {
+    console.error('Error al eliminar empresa:', error);
+    res.status(500).json({ mensaje: 'Error al eliminar empresa' });
+  }
+};
+
