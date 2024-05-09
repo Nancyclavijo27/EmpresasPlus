@@ -17,8 +17,11 @@ exports.crearProducto = async (req, res) => {
   const { codigo, nombre, caracteristicas, precio, moneda } = req.body;
 
   try {
+    // Crear el nuevo producto
     const nuevoProducto = await Producto.create({ codigo, nombre, caracteristicas, precio, moneda });
-    res.status(201).json(nuevoProducto);
+    // Obtener la lista actualizada de productos
+    const productos = await Producto.find();
+    res.status(201).json({ nuevoProducto, productos });
   } catch (error) {
     console.error('Error al crear producto:', error);
     res.status(500).json({ mensaje: 'Error al crear producto' });
