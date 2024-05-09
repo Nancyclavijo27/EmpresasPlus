@@ -3,6 +3,7 @@ import EmpresaForm from '../Empresa/EmpresaForm';
 import Empresas from '../Empresa/Empresas';
 import ProductoList from '../Producto/ProductoList';
 import ProductoForm from '../Producto/ProductoForm';
+import UsuariosList from '../Usuario/UsuariosList';
 import styles from './AdminPanel.module.css'; // Importa los estilos CSS
 
 
@@ -10,6 +11,7 @@ const AdminPanel = () => {
   return (
     <div className={styles["admin-panel"]}>
       <div className={styles["gestion-empresas"]}>
+      <UsuariosList />
         <h2>Gestión de Empresas</h2>
         <div className={styles["crear-empresa-form"]}>
           <h3>Crear Nueva Empresa</h3>
