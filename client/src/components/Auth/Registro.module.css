@@ -1,0 +1,45 @@
+/* Registro.module.css */
+
+.registro-container {
+    max-width: 300px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .registro-container h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .registro-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .registro-container input[type="email"],
+  .registro-container input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .registro-container button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .registro-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .registro-container p {
+    margin-top: 10px;
+    color: red;
+  }
+  
