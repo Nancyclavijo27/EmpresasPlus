@@ -37,3 +37,20 @@ exports.crearEmpresa = async (req, res) => {
     res.status(500).json({ mensaje: 'Error al crear empresa' });
   }
 };
+
+// Controlador para obtener los detalles de una empresa por su NIT
+exports.obtenerDetallesEmpresa = async (req, res) => {
+  try {
+    const nit = req.params.nit;
+    const empresa = await Empresa.findOne({ where: { nit } });
+    
+    if (!empresa) {
+      return res.status(404).json({ mensaje: 'Empresa no encontrada' });
+    }
+    
+    res.json(empresa);
+  } catch (error) {
+    console.error('Error al obtener detalles de empresa:', error);
+    res.status(500).json({ mensaje: 'Error al obtener detalles de empresa' });
+  }
+};

@@ -24,3 +24,19 @@ exports.crearProducto = async (req, res) => {
     res.status(500).json({ mensaje: 'Error al crear producto' });
   }
 };
+
+// Controlador para obtener el detalle de un producto por su ID
+exports.obtenerDetalleProducto = async (req, res) => {
+  const { id } = req.params; // Obtener el ID del producto de los parámetros de la solicitud
+
+  try {
+    const producto = await Producto.findByPk(id); // Buscar el producto por su ID
+    if (!producto) {
+      return res.status(404).json({ mensaje: 'Producto no encontrado' }); // Si no se encuentra el producto, devolver un error 404
+    }
+    res.json(producto); // Devolver el producto encontrado
+  } catch (error) {
+    console.error('Error al obtener el detalle del producto:', error);
+    res.status(500).json({ mensaje: 'Error al obtener el detalle del producto' });
+  }
+};
