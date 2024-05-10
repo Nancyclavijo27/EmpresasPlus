@@ -13,6 +13,7 @@ exports.obtenerProductos = async (req, res) => {
 };
 
 // Controlador para crear un nuevo producto
+// Controlador para crear un nuevo producto
 exports.crearProducto = async (req, res) => {
   const { codigo, nombre, caracteristicas, precio, moneda } = req.body;
 
@@ -20,13 +21,14 @@ exports.crearProducto = async (req, res) => {
     // Crear el nuevo producto
     const nuevoProducto = await Producto.create({ codigo, nombre, caracteristicas, precio, moneda });
     // Obtener la lista actualizada de productos
-    const productos = await Producto.find();
+    const productos = await Producto.findAll();
     res.status(201).json({ nuevoProducto, productos });
   } catch (error) {
     console.error('Error al crear producto:', error);
     res.status(500).json({ mensaje: 'Error al crear producto' });
   }
 };
+
 
 // Controlador para obtener el detalle de un producto por su ID
 exports.obtenerDetalleProducto = async (req, res) => {
