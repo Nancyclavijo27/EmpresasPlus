@@ -1,6 +1,5 @@
 import React from 'react';
 import EmpresaForm from '../Empresa/EmpresaForm';
-import ProductoList from '../Producto/ProductoList';
 import ProductoForm from '../Producto/ProductoForm';
 import UsuariosList from '../Usuario/UsuariosList';
 import styles from './AdminPanel.module.css'; // Importa los estilos CSS
@@ -13,8 +12,10 @@ const AdminPanel = () => {
     
         <h2>Gestión de Empresas</h2>
         <div className={styles["crear-empresa-form"]}>
+          <h3>Crear Nueva Empresa</h3>
           <EmpresaForm />
         </div>
+        
         <h2>Gestión de Usuarios</h2>
          <UsuariosList />
       </div>
@@ -24,10 +25,7 @@ const AdminPanel = () => {
           <h3>Crear Producto</h3>
           <ProductoForm />
         </div>
-        <div className={styles["lista-productos"]}>
-          <h3>Listado de Productos</h3>
-          <ProductoList />
-        </div>
+        
         
       </div>
     </div>
