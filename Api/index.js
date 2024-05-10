@@ -9,6 +9,7 @@ const categoríaRoutes = require('./src/routes/categoríaRoutes');
 const clienteRoutes = require('./src/routes/clienteRoutes'); 
 const ordenRoutes = require('./src/routes/ordenRoutes');
 const usuarioRoutes = require('./src/routes/usuariosRoutes');
+const inventarioRoutes = require('./src/routes/inventarioRoutes');
 
 
 require('dotenv').config();
@@ -47,7 +48,7 @@ app.use('/ordenes', ordenRoutes);
 // Middleware para manejar las rutas de usuarios
 app.use('/usuarios', usuarioRoutes);
 
-
+app.use('/inventario', inventarioRoutes);
 
 // Aquí debes importar la instancia de Sequelize y asignarla a una variable
 const sequelize = require('./src/config/db'); // Asegúrate de que esta ruta sea correcta

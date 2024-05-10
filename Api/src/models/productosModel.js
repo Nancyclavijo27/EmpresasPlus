@@ -1,8 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/db'); // Importa la instancia de Sequelize configurada
 
-
-
 class Producto extends Model {}
 
 Producto.init({
@@ -27,6 +25,7 @@ Producto.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
+  
 }, {
   sequelize,
   modelName: 'Producto',
