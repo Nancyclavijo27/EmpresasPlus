@@ -26,4 +26,46 @@
   .empresas li p {
     margin: 8px 0;
   }
+
+  .formulario-empresa {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .formulario-empresa h2 {
+    text-align: center;
+  }
+  
+  .formulario-empresa label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .formulario-empresa input[type="text"],
+  .formulario-empresa input[type="number"],
+  .formulario-empresa textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .formulario-empresa button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .formulario-empresa button:hover {
+    background-color: #0056b3;
+  }
+  
   
